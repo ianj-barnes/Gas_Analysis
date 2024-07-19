@@ -141,6 +141,7 @@ plt.clf()
 # Predicts the gas prices for the next instance of a given month.
 month_dfs = gas_prices.groupby("Month")
 predictions = []
+r2s = []
 for name, group in month_dfs:
     month_price = pd.DataFrame()
     month_price["Price"] = group.groupby("Year")["All_Price"].mean()
@@ -151,7 +152,10 @@ for name, group in month_dfs:
     prediction_data = np.array(len(month_price.index.values)).reshape(-1,1)
     est_price = model.predict(prediction_data)[0][0]
     predictions.append(est_price)
+    r2 = r2_score(y, model.predict(X))
+    r2s.append(r2)
 
+print(f"Average R2 Score: {np.mean(r2s)}")
 predictions = np.array(predictions)
 idx = np.array([7,8,9,10,11,0,1,2,3,4,5,6])
 future_months = np.array(months)[idx]
