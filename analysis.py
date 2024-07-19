@@ -20,7 +20,7 @@ plt.rcParams['figure.dpi'] = 360
 sns.lineplot(data=gas_prices, x="Date", y="All_Price", color = "k")
 
 # Plot elections/political party change.
-split_points = [datetime.date(1994,9,1), datetime.date(1996,9,5), datetime.date(2000,9,7), datetime.date(2004,9,2), datetime.date(2008,9,4), datetime.date(2012,9,6), datetime.date(2016,9,8), datetime.date(2020,9,3), datetime.date(2024,7,8)]
+split_points = [datetime.date(1993,4,5), datetime.date(1996,9,5), datetime.date(2000,9,7), datetime.date(2004,9,2), datetime.date(2008,9,4), datetime.date(2012,9,6), datetime.date(2016,9,8), datetime.date(2020,9,3), datetime.date(2024,7,8)]
 split_colors = ['blue', 'blue', 'red', 'red', 'blue', 'blue', 'red', 'blue'] 
 
 dates = []
