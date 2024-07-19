@@ -90,8 +90,7 @@ for idx,ax in enumerate(g.axes.flat):
 plt.savefig('Price-Gallon Week')
 plt.clf()
 
-# Box plots of historic monthlly gas prices. Dispersion indicates if "wild" changes in price occur.
-# https://www.simplypsychology.org/boxplots.html
+# Box plots of historic monthly gas prices. Dispersion indicates if "wild" changes in price occur.
 fig, ax = plt.subplots(figsize = (8, 4))
 sns.boxplot(x = gas_prices["Month"], y = gas_prices["All_Price"])
 plt.xlabel("")
@@ -112,6 +111,7 @@ print(f"How many times has a certain month had the most expensive week?\n{months
 may_week = max_prices[max_prices["Month"] == 5]["Week"].value_counts()
 print(f"What was the most expensive week of that year?\n{may_week}")
 
+# Determines which month has had the week with the lowest gas price of the year historically. 
 indeces_min = gas_prices.groupby("Year")["All_Price"].idxmin()
 min_prices = gas_prices.loc[indeces_min][["Month", "Week"]]
 months_min = min_prices["Month"].value_counts()
@@ -155,7 +155,7 @@ for name, group in month_dfs:
     predictions.append(est_price)
     r2 = r2_score(y, model.predict(X))
     r2s.append(r2)
-
+# Plot monthly predictions.
 print(f"Average R2 Score: {np.mean(r2s)}")
 predictions = np.array(predictions)
 idx = np.array([7,8,9,10,11,0,1,2,3,4,5,6])
