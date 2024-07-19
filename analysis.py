@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as dates
 import matplotlib.patches as mpatches
 from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score
 import datetime
 
 # Import Gas Prices data and sort on ascending date.
